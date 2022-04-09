@@ -26,23 +26,58 @@ class ForwardList : public List<T> {
         }
 
         void push_front(T data){
-            throw ("sin definir");
+            Node<T>* nuevo = new Node<T>;
+            nuevo->data = data;
+            nuevo->next = head;
+            head = nuevo;
         }
 
         void push_back(T data){
-            throw ("sin definir");
+            Node<T>* nuevo = new Node<T>;
+            nuevo->data = data;
+            nuevo->next = nullptr;
+            if(head == nullptr)
+            head = nuevo;
+            else {
+                Node<T>* temp = head;
+                while(temp->next != nullptr)        
+                temp = temp->next;
+                temp->next = nuevo;    
+            }
         }
 
         T pop_front(){
-            throw ("sin definir");
+            if(head == nullptr) return;
+            Node<T>* temp = head;
+            head=temp->next;
+            delete temp;
         }
 
         T pop_back(){
-            throw ("sin definir");
+            if(head->next == NULL){
+                delete head;
+                head = NULL;
+            }
+            else {
+                Node<T>* temp = head;
+                while(temp->next->next != NULL)
+                temp = temp->next;
+                delete temp->next;
+                temp->next = NULL;
+            }
         }
 
         T insert(T data, int pos){
-            throw ("sin definir");
+            /*
+            Node<T>* nodo = new Nodo(data);
+            Node<T>* temp = head;
+            int i = 0;
+            while(i++ < pos - 1) temp = temp->next;
+            nodo->next = temp->next;
+            temp->next = nodo;
+            return data;
+            */
+           throw ("sin definir");
         }
 
         bool remove(int pos){

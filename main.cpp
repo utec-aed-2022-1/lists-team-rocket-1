@@ -35,11 +35,13 @@ int main()
     List<int> *forward = new ForwardList<int>();
     test(forward);
 
+    /*
     List<int> *doble = new DoubleList<int>();
     test(doble);
 
     List<int> *circular = new CircularList<int>();
     test(circular);
 
+    */
     return 0;
 }
