@@ -5,7 +5,10 @@
 
 // TODO: Implement all methods
 template <typename T>
-class List {    
+class List {
+    Node<T>* head;
+    Node<T>* tail;
+    int nodes;
     public:
         List() : head(nullptr), tail(nullptr), nodes(0) {};
         virtual ~List(){
