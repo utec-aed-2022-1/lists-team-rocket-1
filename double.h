@@ -66,7 +66,7 @@ class DoubleList : public List<T> {
         }
 
         T pop_front(){
-            if(head == nullptr) throw("Lista vacía");
+            if(head == nullptr) throw("Lista vacia");
             T result = head->data;
             head = head->next;
             delete head->prev;
@@ -75,7 +75,7 @@ class DoubleList : public List<T> {
         }
 
         T pop_back(){
-            if(head == nullptr) throw("Lista vacía");
+            if(head == nullptr) throw("Lista vacia");
             T result = tail->data;
             tail = tail->prev;
             delete tail->next;
@@ -111,11 +111,11 @@ class DoubleList : public List<T> {
             }
             else if(pos == 0){
                 pop_front();
-                ++nodes;
+                --nodes;
             }
             else if(pos == nodes){
                 pop_back();
-                ++nodes;
+                --nodes;
             }
             else{
                 Node<T>* temp = head;
@@ -124,7 +124,7 @@ class DoubleList : public List<T> {
                 temp->prev->next = temp->next;
                 temp->next->prev = temp->prev;
                 temp = nullptr;
-                ++nodes;
+                --nodes;
             }
         }
 
