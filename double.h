@@ -106,14 +106,14 @@ class DoubleList : public List<T> {
         }
 
         void remove(int pos){
-            if(pos < 0 || pos > nodes){
+            if(pos < 0 || pos >= nodes){
                 throw("Posicion fuera de limites");
             }
             else if(pos == 0){
                 pop_front();
                 --nodes;
             }
-            else if(pos == nodes){
+            else if(pos == nodes-1){
                 pop_back();
                 --nodes;
             }
@@ -129,10 +129,15 @@ class DoubleList : public List<T> {
         }
 
         T& operator[](int pos){
-            Node<T>* temp = head;
-            int i = 0;
-            while(i++ < pos) temp = temp->next;
-            return temp->data;
+            if(pos < 0 || pos >= nodes){
+                throw("Posicion fuera de limites");
+            }
+            else{
+                Node<T>* temp = head;
+                int i = 0;
+                while(i++ < pos) temp = temp->next;
+                return temp->data;
+            }
         }
 
         bool is_empty(){
