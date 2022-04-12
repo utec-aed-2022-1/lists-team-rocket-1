@@ -87,7 +87,7 @@ class DoubleList : public List<T> {
             if(pos == 0){
                 push_front(data);
             }
-            else if(pos == nodes){
+            else if(pos == nodes-1){
                 push_back(data);
             }
             else{
