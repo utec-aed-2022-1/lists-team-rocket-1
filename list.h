@@ -5,7 +5,12 @@
 
 // TODO: Implement all methods
 template <typename T>
-class List {    
+class List {
+    private: 
+    Node<T>* head;
+    Node<T>* tail;
+    int nodes;
+    
     public:
         List() : head(nullptr), tail(nullptr), nodes(0) {};
         virtual ~List(){
@@ -20,7 +25,7 @@ class List {
         virtual T pop_front() = 0;
         virtual T pop_back() = 0;
         virtual T insert(T, int) = 0;
-        virtual bool remove(int) = 0;
+        virtual void remove(int) = 0;
         virtual T& operator[](int) = 0;//debe ser declarado en cada clase hija
         virtual bool is_empty() = 0;
         virtual int size() = 0;
@@ -30,5 +35,12 @@ class List {
         virtual void reverse() = 0;
         virtual std::string name() = 0;
 };
+
+template <typename T>
+void swap(Node<T>* node01, Node<T>* node02){
+    T temp = node01->data;
+    node01->data = node02->data;
+    node02->data = temp;
+}
 
 #endif
