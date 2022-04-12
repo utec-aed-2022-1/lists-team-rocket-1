@@ -3,6 +3,7 @@
 #include <iostream>
 #include "list.h"
 
+using namespace std;
 
 // TODO: Implement all methods
 template <typename T>
@@ -111,20 +112,21 @@ class ForwardList : public List<T> {
             }
             else if(pos == 0){
                 pop_front();
-                ++nodes;
+                --nodes;
             }
             else if(pos == nodes){
                 pop_back();
-                ++nodes;
+                --nodes;
             }
             else{
                 Node<T>* temp = head;
                 int i = 0;
                 while(i++ < pos-1) temp = temp->next;
+                std::cout<<"ga"<<temp->data<<"ga"<<std::endl;
                 Node<T>* change = temp->next;
                 temp->next = temp->next->next;
                 change = nullptr;
-                ++nodes;
+                --nodes;
             }
         }
 

@@ -46,15 +46,13 @@ void test(List<int>* list){
     ASSERT(list->is_empty() == true, "The function clear is not working");
     delete list;
     */
-
-    
     list->push_front(5);
     list->push_front(10);
     list->push_front(30);
     list->push_front(40);
     cout<<(*list)[0]<<" "<<(*list)[1]<<" " <<(*list)[2]<<" " <<(*list)[3]<<" " <<endl;
-    list->insert(1,1);
-    cout<<(*list)[0]<<" "<<(*list)[1]<<" " <<(*list)[2]<<" " <<(*list)[3]<<" " <<endl;
+    list->remove(3);
+    cout<<(*list)[0]<<" "<<(*list)[1]<<" " <<(*list)[2]<<" "<<endl;
 }
 
 int main()

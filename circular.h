@@ -115,24 +115,26 @@ class CircularList : public List<T> {
         }
 
         void remove(int pos){
-            if(pos < 0 || pos > nodes){
+            
+            if(pos < 0 || pos >= nodes){
                 throw("Posicion fuera de limites");
             }
             else if(pos == 0){
                 pop_front();
                 --nodes;
             }
-            else if(pos == nodes){
+            else if(pos == nodes-1){
                 pop_back();
                 --nodes;
             }
             else{
-                Node<T>* temp = head->next;
+                Node<T>* temp = head;
                 int i = 0;
                 while(i++ < pos) temp = temp->next;
-                Node<T>* aux = temp;
-                temp->prev = temp->next; 
-                temp->next = aux->prev;                
+                Node<T>* aux = temp->next;
+                temp->next = temp->next->next;
+                temp->next->prev = temp;
+                delete aux;            
                 --nodes;
             }
         }
