@@ -93,10 +93,13 @@ class CircularList : public List<T> {
         }
 
         T insert(T data, int pos){
+            if(pos < 0 || pos >= nodes){
+                throw("Posicion fuera de limites");
+            }
             if(pos == 0){
                 push_front(data);
             }
-            else if(pos == nodes){
+            else if(pos == nodes-1){
                 push_back(data);
             }
             else{
@@ -114,8 +117,7 @@ class CircularList : public List<T> {
             return data;
         }
 
-        void remove(int pos){
-            
+        void remove(int pos){     
             if(pos < 0 || pos >= nodes){
                 throw("Posicion fuera de limites");
             }
@@ -140,10 +142,15 @@ class CircularList : public List<T> {
         }
 
         T& operator[](int pos){
-            Node<T>* temp = head;
-            int i = 0;
-            while(i++ < pos+1) temp = temp->next;
-            return temp->data;
+            if(pos < 0 || pos >= nodes){
+                throw("Posicion fuera de limites");
+            }
+            else{
+                Node<T>* temp = head;
+                int i = 0;
+                while(i++ < pos+1) temp = temp->next;
+                return temp->data;
+            }
         }
 
         bool is_empty(){
